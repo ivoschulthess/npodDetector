@@ -1,30 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-  "||" = W layer (2.1mm)
-  Conf 1: 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9 || 10 || 11 || 12 |||| 13 |||| 14 |||| 15 → 9.6 X0
+  "||" = W layer (2.8 mm)
+  Config:  || 1 || 2 || 3 || 4 || 5 || 6 || 7 ||| 8 ||| 9 ||| 10 ||| 11 ||| 12 ||| 13 ||| 14 ||| 15 -> 15.2 X0
 -->
   
 <!-- 
-  Plastic plate (polyethylene) thickness: 2 mm
-  Distance to groove 61.8 mm
   Dist between grooves: 15 mm
-  Carbon thickness
 
   ECAL slab structure (from upstream beam direction)
 
-  Tungsten             From 0 mm, to 5.6 mm (New in TB2022-06)
-  Carbon               1.50 mm (A Gallas)
-  Kapton               0.10 mm 
-  Glue                 0.10 mm
-  Silicon Sensor       0.32 mm or 0.5 mm or 0.65 mm
-  Glue                 0.10 mm
-  Copper layer:        0.10 mm
-  PCB                  1.70 mm (TODO To be checked with Jerome)
-  Chip                 1.20 mm 
-  Air
+  Tungsten             2.8 mm / 4.2 mm
+  Carbon               1.5 mm
+  Kapton               0.1 mm 
+  Glue                 0.1 mm
+  Silicon Sensor       0.5 mm
+  Glue                 0.1 mm
+  Kapton               0.1 mm
+  PCB                  1.7 mm
+  Chip                 1.2 mm 
   ==================================
-  total slab thickness = 10.72, 10.9 or 11.05 mm (counting 5.6 mm Tungsten "box")
+  slab thickness       8.1 mm / 9.5 mm
+
+  air gap              6.9 mm / 5.5 mm
 -->
 
 <define>
@@ -35,29 +33,29 @@
   <constant name="Ecal_CellSizeX" value="5.5*mm" />
   <constant name="Ecal_CellSizeY" value="5.5*mm" />
 
+  <constant name="Ecal_NlayersZ_front" value="7" />
+  <constant name="Ecal_NlayersZ_back" value="8" />
+  <constant name="Ecal_LayerDistance" value="15.0*mm"/> 
+
   <constant name="Ecal_dim_x" value="Ecal_NcellsX*Ecal_CellSizeX"/>
   <constant name="Ecal_dim_y" value="Ecal_NcellsY*Ecal_CellSizeY"/>
   <!-- 15*15mm layers + 26mm (rear space) + 30mm (upfront space) + 4mm (plastic plates) -->
-  <constant name="Ecal_dim_z" value="285*mm"/>
-
-  <constant name="Ecal_LayerDistance" value="15.0*mm"/> 
-  <constant name="Ecal_slab_thickness500" value="10.9*mm"/>
+  <constant name="Ecal_dim_z" value="(Ecal_NlayersZ_front+Ecal_NlayersZ_back)*Ecal_LayerDistance + 26*mm + 30*mm + 4*mm"/>
 
   <constant name="Ecal_AlThickness" value="2*mm"/> 
-  <constant name="Ecal_AlThickness_back" value="2*mm"/>
-
-  <constant name="Ecal_WThickness" value="1*mm"/> <!-- Units of mm-->
-  <constant name="Ecal_PlasticThickness" value="2*mm"/>
+  <constant name="Ecal_WThickness_front" value="2.8*mm"/>
+  <constant name="Ecal_WThickness_back" value="4.2*mm"/>
   <constant name="Ecal_CFThickness" value="1.5*mm"/>
   <constant name="Ecal_KaptonThickness" value="0.1*mm"/>
-  <constant name="Ecal_GlueThickness_kap" value="0.1*mm"/>
-  <constant name="Ecal_WaferThickness500" value="0.500*mm"/>
+  <constant name="Ecal_GlueThickness" value="0.1*mm"/>
+  <constant name="Ecal_WaferThickness" value="0.5*mm"/>
 
-  <constant name="Ecal_GlueThickness_pcb" value="0.1*mm"/>
   <constant name="Ecal_PcbThickness" value="1.7*mm"/> 
   <constant name="Ecal_ChipThickness" value="1.2*mm"/> 
 
-  <constant name="Ecal_w_slab_gap500" value="Ecal_LayerDistance-Ecal_slab_thickness500"/>
+  <constant name="Ecal_slabThickness_front" value="8.1*mm"/>
+  <constant name="Ecal_slabThickness_back" value="9.5*mm"/>
+  <constant name="Ecal_slabGap_front" value="Ecal_LayerDistance-Ecal_slabThickness_front"/>
+  <constant name="Ecal_slabGap_back" value="Ecal_LayerDistance-Ecal_slabThickness_back"/>
 
-  <constant name="Ecal_TB_box_z" value="Ecal_dim_z+2*59.7*mm+2*Ecal_AlThickness"/>
 </define>

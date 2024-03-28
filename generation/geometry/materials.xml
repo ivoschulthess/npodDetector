@@ -2,8 +2,6 @@
 
 <materials>
 
-  <comment>extra materials</comment>
-
   <material name="PCB" state="solid">
     <MEE unit="eV" value="88.255598548367"/>
     <D unit="g/cm3" value="1.7"/>
@@ -18,14 +16,6 @@
   <material name="TungstenDens1910">
     <D value="19.10" unit="g/cm3"/>
     <fraction n="1.0" ref="W"/>
-  </material>
-
-  <!-- Plastic plate used in TB2021/22 prototype-->
-  <!-- http://pdg.web.cern.ch/pdg/2020/AtomicNuclearProperties/HTML/polyethylene.html -->
-  <material name="PolyethyleneProto">
-    <D value="0.89" unit="g/cm3"/> <!-- Check value w/ Vincent -->
-    <fraction n="0.143711" ref="H"/>
-    <fraction n="0.856289" ref="C"/>
   </material>
 
 </materials>
